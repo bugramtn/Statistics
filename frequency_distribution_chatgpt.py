@@ -28,7 +28,7 @@ for score, frequency in sorted_frequency_dict.items():
     # Relative frequency as a decimal
     relative_frequency = frequency / total_scores
     
-    # Percentage
+    # Percentage as an integer
     percentage = relative_frequency * 100
     
     # Cumulative frequency
@@ -37,5 +37,5 @@ for score, frequency in sorted_frequency_dict.items():
     # Cumulative relative frequency as a decimal
     cumulative_relative_frequency = cumulative_frequency / total_scores
     
-    # Print the results for each score
-    print(f"{score:<10} {frequency:<10} {relative_frequency:<20.3f} {percentage:<15.2f} {cumulative_frequency:<25} {cumulative_relative_frequency:.3f}")
+    # Print the results for each score with the updated formatting
+    print(f"{score:<10} {frequency:<10} {relative_frequency:<20.2f} {percentage:<15.0f} {cumulative_frequency:<25} {cumulative_relative_frequency:.2f}")
