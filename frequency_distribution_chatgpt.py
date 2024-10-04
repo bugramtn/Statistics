@@ -1,3 +1,5 @@
+import statistics
+
 # Step 1: Take scores from the user and store them in a list
 scores = input("Enter the scores separated by spaces: ").split()
 scores = [int(score) for score in scores]
@@ -39,3 +41,22 @@ for score, frequency in sorted_frequency_dict.items():
     
     # Update cumulative relative frequency
     cumulative_relative_frequency = reverse_cumulative_frequency / total_scores
+
+# Step 7: Calculate Mode, Median, and Mean
+# Mode: Most frequent score(s)
+try:
+    mode = statistics.multimode(scores)  # Use multimode to handle cases with more than one mode
+except statistics.StatisticsError:
+    mode = "No mode"
+
+# Median: Middle score or average of two middle scores
+median = statistics.median(scores)  # Automatically handles odd/even counts and duplications
+
+# Mean: Average of the scores
+mean = statistics.mean(scores)
+
+# Step 8: Print Mode, Median, and Mean
+print("\nStatistics:")
+print(f"Mode: {', '.join(map(str, mode)) if mode else 'No mode'}")
+print(f"Median: {median}")
+print(f"Mean: {mean:.2f}")
