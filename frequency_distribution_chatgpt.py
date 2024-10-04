@@ -1,4 +1,5 @@
 import statistics
+import math
 
 # Step 1: Take scores from the user and store them in a list
 scores = input("Enter the scores separated by spaces: ").split()
@@ -55,8 +56,21 @@ median = statistics.median(scores)  # Automatically handles odd/even counts and 
 # Mean: Average of the scores
 mean = statistics.mean(scores)
 
-# Step 8: Print Mode, Median, and Mean
+# Step 8: Calculate Sum of Squares, Variance, and Standard Deviation
+# Sum of Squares (SS): sum of (score - mean)^2
+sum_of_squares = sum((x - mean) ** 2 for x in scores)
+
+# Variance: sum_of_squares / (n - 1) for sample variance (unbiased estimate)
+variance = statistics.variance(scores)
+
+# Standard Deviation: Square root of the variance
+standard_deviation = math.sqrt(variance)
+
+# Step 9: Print Mode, Median, Mean, Sum of Squares, Variance, and Standard Deviation
 print("\nStatistics:")
 print(f"Mode: {', '.join(map(str, mode)) if mode else 'No mode'}")
 print(f"Median: {median}")
 print(f"Mean: {mean:.2f}")
+print(f"Sum of Squares: {sum_of_squares:.2f}")
+print(f"Variance: {variance:.2f}")
+print(f"Standard Deviation: {standard_deviation:.2f}")
