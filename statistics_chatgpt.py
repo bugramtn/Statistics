@@ -1,5 +1,6 @@
 import statistics
 import math
+import matplotlib.pyplot as plt
 
 # Step 1: Take scores from the user and store them in a list
 scores = input("Enter the scores separated by spaces: ").split()
@@ -74,3 +75,21 @@ print(f"Mean: {mean:.2f}")
 print(f"Sum of Squares: {sum_of_squares:.2f}")
 print(f"Variance: {variance:.2f}")
 print(f"Standard Deviation: {standard_deviation:.2f}")
+
+# Step 10: Function to draw frequency histogram
+def plot_histogram(scores, frequency_dict):
+    # Prepare the data for plotting
+    scores_list = list(frequency_dict.keys())
+    frequencies = list(frequency_dict.values())
+    
+    # Plot histogram
+    plt.bar(scores_list, frequencies, color='skyblue', edgecolor='black')
+    plt.xlabel('Scores')
+    plt.ylabel('Frequency')
+    plt.title('Frequency Histogram of Scores')
+    
+    # Show the histogram
+    plt.show()
+
+# Call the function to plot the histogram
+plot_histogram(scores, frequency_dict)
