@@ -83,7 +83,7 @@ def plot_histogram(scores, frequency_dict):
     frequencies = list(frequency_dict.values())
     
     # Plot histogram
-    plt.bar(scores_list, frequencies, color='skyblue', edgecolor='black')
+    plt.bar(scores_list, frequencies, color='white', edgecolor='black', width=1.0)
     plt.xlabel('Scores')
     plt.ylabel('Frequency')
     plt.title('Frequency Histogram of Scores')
