@@ -76,20 +76,33 @@ print(f"Sum of Squares: {sum_of_squares:.2f}")
 print(f"Variance: {variance:.2f}")
 print(f"Standard Deviation: {standard_deviation:.2f}")
 
-# Step 10: Function to draw frequency histogram
-def plot_histogram(scores, frequency_dict):
+# Step 10: Function to draw frequency histogram without gaps and show mode, median, and mean
+def plot_histogram(scores, frequency_dict, mode, median, mean):
     # Prepare the data for plotting
     scores_list = list(frequency_dict.keys())
     frequencies = list(frequency_dict.values())
     
-    # Plot histogram
+    # Plot histogram with width 1.0 to remove gaps between bars
     plt.bar(scores_list, frequencies, color='white', edgecolor='black', width=1.0)
+    
+    # Add vertical lines for mode, median, and mean
+    plt.axvline(x=mean, color='green', linestyle='--', label=f'Mean: {mean:.2f}')
+    plt.axvline(x=median, color='red', linestyle='-', label=f'Median: {median}')
+    
+    # In case of multiple modes, plot a vertical line for each mode
+    for m in mode:
+        plt.axvline(x=m, color='purple', linestyle=':', label=f'Mode: {m}')
+    
+    # Labels and title
     plt.xlabel('Scores')
     plt.ylabel('Frequency')
-    plt.title('Frequency Histogram of Scores')
+    plt.title('Frequency Histogram of Scores (No Gaps)')
     
+    # Show legend
+    plt.legend()
+
     # Show the histogram
     plt.show()
 
-# Call the function to plot the histogram
-plot_histogram(scores, frequency_dict)
+# Call the function to plot the histogram and display mode, median, and mean
+plot_histogram(scores, frequency_dict, mode, median, mean)
